@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Roboto|Staatliches');
+
+.App{
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+h1, h6, p{
+  margin:0;
+}
