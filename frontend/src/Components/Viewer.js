@@ -1,15 +1,17 @@
 import * as React from 'react';
 import App from "./App";
-import { BrowserRouter, Route } from 'react-router-dom';
+import MainPage from "./Main site/MainPage"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class Viewer extends React.Component{
     render(){
         return(
             <div className="Viewer">
                 <BrowserRouter>
-                    <div>
+                    <Switch>
+                        <Route path="/login" component={MainPage}/>
                         <Route path="/" component={App}/>
-                    </div>
+                    </Switch>
                 </BrowserRouter>
             </div>
         )
