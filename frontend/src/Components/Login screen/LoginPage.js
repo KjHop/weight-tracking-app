@@ -12,7 +12,7 @@ class LoginPage extends React.Component{
                 <form>
                     <input type="text" placeholder="Username"/>
                     <input type="password" placeholder="Password"/>
-                    <Link to="/login"><input type="submit" value="Login"/></Link>
+                    <Link to="/"><input type="submit" value="Login"/></Link>
                 </form>
             </div>
         )

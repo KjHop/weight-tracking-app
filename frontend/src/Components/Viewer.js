@@ -9,8 +9,8 @@ class Viewer extends React.Component{
             <div className="Viewer">
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/login" component={MainPage}/>
-                        <Route path="/" component={App}/>
+                        <Route exact path="/" component={MainPage}/>
+                        <Route path="/login" component={App}/>
                     </Switch>
                 </BrowserRouter>
             </div>
