@@ -1,12 +1,12 @@
-.MainPage{
+.WelcomePage{
     width: 100vw;
     height: 100vh;
-    background-image:url(../Images/main-page-background.jpg);
+    background-image:url(../Images/welcome-page-background.jpg);
     background-position: center;
     background-size: cover;
     background-blend-mode: hard-light;
 }
-.MainPageHeading{
+.WelcomePageHeading{
     font-family: "Roboto";
     width:30vw;
     height:30vh;
@@ -18,20 +18,20 @@
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
-.MainPageHeading >h1{
+.WelcomePageHeading >h1{
     font-family: 'Staatliches', cursive;
     display:block;
     font-size:4vw;
 }
-.MainPageHeading >h2{
+.WelcomePageHeading >h2{
     display:block;
     font-size:1.5vw;
 }
-.MainPageHeading >h3{
+.WelcomePageHeading >h3{
     display:block;
     font-size:1vw;
 }
-.MainPageSignup{
+.WelcomePageSignup{
     font-family: 'Staatliches', cursive;
     font-size:1.5vw;
     color:#f5f6fa;
@@ -39,11 +39,12 @@
     border:none;
     padding: 5px 20px;
     border-radius:10px;
+    border:1px solid #222f3e;
 }
-.MainPageSignin:hover{
+.WelcomePageSignin:hover{
     cursor: pointer;
     text-decoration: underline;
 }
-.MainPageSignin > a {
+.WelcomePageSignin > a {
     color:inherit;
 }

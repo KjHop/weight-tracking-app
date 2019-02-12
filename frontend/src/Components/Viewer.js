@@ -1,6 +1,7 @@
 import * as React from 'react';
 import App from "./App";
-import MainPage from "./Main site/MainPage"
+import WelcomePage from "./Welcome screen/WelcomePage";
+import RegisterPage from "./Register screen/RegisterPage";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class Viewer extends React.Component{
@@ -9,8 +10,9 @@ class Viewer extends React.Component{
             <div className="Viewer">
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={MainPage}/>
+                        <Route exact path="/" component={WelcomePage}/>
                         <Route path="/login" component={App}/>
+                        <Route path="/register" component={RegisterPage}/>
                     </Switch>
                 </BrowserRouter>
             </div>

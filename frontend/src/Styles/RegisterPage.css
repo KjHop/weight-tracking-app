@@ -1,0 +1,74 @@
+.RegisterPage{
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+.RegisterPage > h1{
+    padding-top:14vh;
+    font-family: 'Staatliches', cursive;
+    font-size:50px;
+    color:#8c7ae6;
+}
+
+.RegisterPage>img{
+    height:30vh;
+    width:30vh;
+    margin:0;
+}
+
+.RegisterPage>form{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    width:60vw;
+    margin-left:20vw;
+    margin-right:20vw;
+    padding-top:5vh;
+}
+
+.RegisterPage > form > input{
+    width:50%;
+    margin-right:25%;
+    margin-left:25%;
+    margin-top:10px;
+    padding:5px;
+    border:none;
+    font-size:1.3vw;
+    border-radius: 4px;
+}
+
+.RegisterPage > form > input[type="submit"]{
+    background-color: #9c88ff;
+    width:35%;
+    margin-left:32.5%;
+    margin-right:32.5%;
+    color:#f5f6fa;
+}
+
+.RegisterPage > form > input{
+    width:50%;
+    margin-right:25%;
+    margin-left:25%;
+    margin-top:10px;
+    padding:5px;
+    border:none;
+    font-size:1.3vw;
+    border-radius: 4px;
+}
+
+@media screen and (max-width:768px){
+    .RegisterPage > img{
+        height:25vh;
+        width:25vh;
+    }
+    .RegisterPage > h1{
+        padding-top:10vh;
+        font-size:32px;
+    }
+    .RegisterPage > form > input{
+        font-size:3vw;
+        width:70%;
+        margin-right:15%;
+        margin-left:15%;
+    }
+}
