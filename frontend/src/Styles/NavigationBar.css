@@ -1,11 +1,3 @@
 .NavigationBar{
-    width:100%;
-    background-color:#9c88ff;
-    height: 2.5vw;
-}
-.NavigationBar > a{
-    font-size: 1.4vw;
-    text-decoration: none;
-    color:#f5f6fa;
-    padding: 10px 10px 10px 10px;
+    float:right;
 }

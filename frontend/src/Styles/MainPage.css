@@ -1,4 +1,49 @@
 .MainPage{
     width: 100vw;
     height: 100vh;
+    background-image:url(../Images/main-page-background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: hard-light;
+}
+.MainPageHeading{
+    font-family: "Roboto";
+    width:30vw;
+    height:30vh;
+    margin:auto;
+    position: absolute;
+    text-align: center;
+    top:0px; bottom:0px; right:0px; left:0px;
+    color:#f5f6fa;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.MainPageHeading >h1{
+    font-family: 'Staatliches', cursive;
+    display:block;
+    font-size:4vw;
+}
+.MainPageHeading >h2{
+    display:block;
+    font-size:1.5vw;
+}
+.MainPageHeading >h3{
+    display:block;
+    font-size:1vw;
+}
+.MainPageSignup{
+    font-family: 'Staatliches', cursive;
+    font-size:1.5vw;
+    color:#f5f6fa;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    border:none;
+    padding: 5px 20px;
+    border-radius:10px;
+}
+.MainPageSignin:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.MainPageSignin > a {
+    color:inherit;
 }
