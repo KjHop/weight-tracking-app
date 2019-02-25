@@ -13,8 +13,10 @@ module.exports = app =>{
         pool.query("SELECT * FROM users", (error, result)=>{
             console.log(result);
         });
+        pool.end();
     });
     app.post("/login", (request,response)=>{
+        console.log(request.body);
         const pool = mysql.createPool({
             connectionLimit: 10,
             host:"localhost",
@@ -25,9 +27,7 @@ module.exports = app =>{
         const sql = "SELECT username, password FROM users WHERE username='"+request.body.username+"' and password='"+request.body.password+"'";
         pool.query(sql, (error, result)=>{
             if (error) throw error;
-            console.log(result[0]);
-            console.log(result[0].username==request.body.username, result[0].username, request.body.username);
-            if(result.length!==0 && result !== undefined){
+            if(result !== undefined && result.length!==0 ){
                 if(result[0].username===request.body.username && result[0].password===request.body.password){
                     response.send("Logged in");
                 }else{
@@ -36,6 +36,7 @@ module.exports = app =>{
             }else{
                 response.send("Bad username or password");
             }
+            pool.end();
         });
     });
     app.post("/register", (request, response)=>{
@@ -48,15 +49,20 @@ module.exports = app =>{
         });
         const sql = "INSERT INTO users(username, password, email) VALUES('"+request.body.username+"','"+request.body.password+"','"+request.body.email+"')";
         //Check if user exists
+        let userExists = false;
         pool.query("SELECT username FROM users WHERE username='"+request.body.username+"'", (error, result)=>{
-            if (error) throw error;
-            if(result.length===0 && result !== undefined){
+            if(result !== undefined && result.length !==0){
+                userExists = true;
+            }else{
+                userExists = false;
+            }
+            if(userExists===false){
                 pool.query(sql, (error, result)=>{
-                    console.log("Successfully registered");
-                    response.send("Gud gud");
+                    if (error) throw error;
+                    response.send("Git");
                 });
             }else{
-                response.send("User exists");
+                response.send("Nie git");
             }
         });
     });

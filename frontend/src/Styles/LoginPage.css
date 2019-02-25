@@ -32,7 +32,7 @@
     border-radius: 4px;
 }
 
-.LoginPage > form > a > input[type="submit"]{
+.LoginPage > form > input[type="submit"]{
     background-color: #9c88ff;
     width:35%;
     margin-left:32.5%;
