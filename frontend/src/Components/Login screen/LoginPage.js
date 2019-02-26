@@ -29,7 +29,7 @@ class LoginPage extends React.Component{
         axios.post('http://192.168.8.100:8080/login', {
             username: this.state.username,
             password: this.state.password
-        })
+        }, {withCredentials: true})
         .then(response=>{
             console.log(response);
         })

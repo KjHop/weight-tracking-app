@@ -19,7 +19,6 @@ module.exports = app =>{
         pool.end();
     });
     app.post("/login", (request,response)=>{
-        console.log(request.body);
         const pool = mysql.createPool({
             connectionLimit: 10,
             host:"localhost",
@@ -34,7 +33,7 @@ module.exports = app =>{
                 if(result[0].username===request.body.username){
                     bcrypt.compare(request.body.password, result[0].password, (error, result)=>{
                         if(result===true){
-                            response.send("Logged in");
+                            response.cookie('logged as', request.body.username, { maxAge: 999999, HttpOnly: false }).send("Logged in");
                         }else{
                             response.send("Wrong username or password");
                         }
