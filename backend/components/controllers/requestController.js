@@ -1,5 +1,8 @@
 const express = require("express");
 const mysql = require("mysql");
+const bcrypt = require("bcrypt");
+
+const saltRounds = 10;
 
 module.exports = app =>{
     app.get("/",(request,response)=>{
@@ -24,17 +27,23 @@ module.exports = app =>{
             password:"testtest1",
             database:'light_weight'
         });
-        const sql = "SELECT username, password FROM users WHERE username='"+request.body.username+"' and password='"+request.body.password+"'";
+        const sql = "SELECT username, password FROM users WHERE username='"+request.body.username+"'";
         pool.query(sql, (error, result)=>{
             if (error) throw error;
             if(result !== undefined && result.length!==0 ){
-                if(result[0].username===request.body.username && result[0].password===request.body.password){
-                    response.send("Logged in");
+                if(result[0].username===request.body.username){
+                    bcrypt.compare(request.body.password, result[0].password, (error, result)=>{
+                        if(result===true){
+                            response.send("Logged in");
+                        }else{
+                            response.send("Wrong username or password");
+                        }
+                    });
                 }else{
                     response.send("Wrong username or password");
                 }
             }else{
-                response.send("Bad username or password");
+                response.send("Wrong username or password");
             }
             pool.end();
         });
@@ -47,7 +56,6 @@ module.exports = app =>{
             password:"testtest1",
             database:'light_weight'
         });
-        const sql = "INSERT INTO users(username, password, email) VALUES('"+request.body.username+"','"+request.body.password+"','"+request.body.email+"')";
         //Check if user exists
         let userExists = false;
         pool.query("SELECT username FROM users WHERE username='"+request.body.username+"'", (error, result)=>{
@@ -57,9 +65,14 @@ module.exports = app =>{
                 userExists = false;
             }
             if(userExists===false){
-                pool.query(sql, (error, result)=>{
-                    if (error) throw error;
-                    response.send("Git");
+                bcrypt.hash(request.body.password, saltRounds).then(function(hash) {
+                    const sql = "INSERT INTO users(username, password, email) VALUES('"+request.body.username+"','"+hash+"','"+request.body.email+"')";
+                    pool.query(sql, (error, result)=>{
+                        if (error) throw error;
+                        response.send("Git");
+                    });
+                }).catch(err=>{
+                    console.log(err);
                 });
             }else{
                 response.send("Nie git");
