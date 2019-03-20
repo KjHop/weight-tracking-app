@@ -31,7 +31,9 @@ class LoginPage extends React.Component{
             password: this.state.password
         }, {withCredentials: true})
         .then(response=>{
-            console.log(response);
+            if(response.data==="Logged in"){
+                this.props.history.push("/dashboard");
+            }
         })
         .catch(error=>{
             console.log(error);
